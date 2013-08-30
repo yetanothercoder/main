@@ -1,0 +1,15 @@
+We live in the data age. It’s not easy to measure the total volume of data stored electronically,
+but an IDC estimate put the size of the “digital universe” at 0.18 zettabytes
+in 2006, and is forecasting a tenfold growth by 2011 to 1.8 zettabytes.* A zettabyte is
+1021 bytes, or equivalently one thousand exabytes, one million petabytes, or one billion
+terabytes. That’s roughly the same order of magnitude as one disk drive for every person
+in the world.
+This flood of data is coming from many sources. Consider the following:†
+• The New York Stock Exchange generates about one terabyte of new trade data per
+day.
+• Facebook hosts approximately 10 billion photos, taking up one petabyte of storage.
+• Ancestry.com, the genealogy site, stores around 2.5 petabytes of data.
+• The Internet Archive stores around 2 petabytes of data, and is growing at a rate of
+20 terabytes per month.
+• The Large Hadron Collider near Geneva, Switzerland, will produce about 15
+petabytes of data per year.
