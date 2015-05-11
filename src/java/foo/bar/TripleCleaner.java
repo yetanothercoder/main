@@ -32,11 +32,11 @@ public class TripleCleaner {
         int sameCount = 0;
 
         for (Integer n : list) {
-            if (last == null) {
+            if (sameCount == 0) {
                 last = n;
             }
 
-            if (last.equals(n)) {
+            if (Objects.equals(last, n)) {
                 sameCount++;
             } else {
                 if (sameCount < repeat) {
