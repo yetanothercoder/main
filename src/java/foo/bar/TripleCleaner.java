@@ -10,15 +10,15 @@ public class TripleCleaner {
     public static void main(String[] args) {
         List<Integer> numbers = asList(-1, -1, -1, 2, 7, 7, 7, 7, 4, 9, 2, 4, 6, 6, 7, 2, 2, 2, 1, 1);
 
-        // in seg >>
-        System.out.println("check: " + removeInSeq(numbers, 3).equals(asList(2, 4, 9, 2, 4, 6, 6, 7, 1, 1)));
-        System.out.println("check: " + removeInSeq(Collections.<Integer>emptyList(), 3).isEmpty());
-        System.out.println("check: " + removeInSeq(asList(1, 1, 1, 1, 1, 1), 3).isEmpty());
+        // in seq >>
+        System.out.println("check1: " + removeInSeq(numbers, 3).equals(asList(2, 4, 9, 2, 4, 6, 6, 7, 1, 1)));
+        System.out.println("check2: " + removeInSeq(Collections.<Integer>emptyList(), 3).isEmpty());
+        System.out.println("check3: " + removeInSeq(asList(1, 1, 1, 1, 1, 1), 3).isEmpty());
 
         // all >>
-        System.out.println("check: " + removeAll(numbers, 3).equals(asList(4, 9, 4, 6, 6, 1, 1)));
-        System.out.println("check: " + removeAll(Collections.<Integer>emptyList(), 3).isEmpty());
-        System.out.println("check: " + removeAll(asList(1, 1, 1, 1, 1, 1), 3).isEmpty());
+        System.out.println("check4: " + removeAll(numbers, 3).equals(asList(4, 9, 4, 6, 6, 1, 1)));
+        System.out.println("check5: " + removeAll(Collections.<Integer>emptyList(), 3).isEmpty());
+        System.out.println("check6: " + removeAll(asList(1, 1, 1, 1, 1, 1), 3).isEmpty());
     }
 
     /**
@@ -28,29 +28,22 @@ public class TripleCleaner {
         if (repeat < 1 || list == null) throw new IllegalArgumentException();
 
         List<Integer> result = new ArrayList<>();
-        Integer last = null;
-        int sameCount = 0;
 
+        List<Integer> buff = new ArrayList<>();
         for (Integer n : list) {
-            if (sameCount == 0) {
-                last = n;
-            }
-
-            if (Objects.equals(last, n)) {
-                sameCount++;
+            if (buff.isEmpty() || Objects.equals(buff.get(0), n)) {
+                buff.add(n);
             } else {
-                if (sameCount < repeat) {
-                    while (sameCount-- > 1) result.add(last);
-                    result.add(last);
+                if (buff.size() < repeat) {
+                    result.addAll(buff);
                 }
-                sameCount = 1;
-                last = n;
+                buff.clear();
+                buff.add(n);
             }
         }
 
-        if (sameCount > 0 && sameCount < repeat) {
-            while (sameCount-- > 1) result.add(last);
-            result.add(last);
+        if (!buff.isEmpty() && buff.size() < repeat) {
+            result.addAll(buff);
         }
         return result;
     }
